@@ -11,6 +11,7 @@ public:
         int middle;
         
         while(left <right){
+            //middle = (left+right)2; 범위 오류남
             middle = left +(right-left)/2;
             if(isBadVersion(middle))
                 right = middle;

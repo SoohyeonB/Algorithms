@@ -1,0 +1,36 @@
+#include <string>
+#include <vector>
+#include <cmath>
+//시작 시간 : 23:44
+//야근 피로도 += pow(works[i])
+using namespace std;
+
+long long solution(int n, vector<int> works) {
+    long long answer = 0;
+    long long sum = 0;
+    //1. 모든 원소의 합을 구해서 야근일수를 구한다. 
+    for(int i =0; i< works.size(); i++){
+        sum += works[i]; 
+    }
+    
+    //2. 야근 일수에서 일을 한 결과를 뺀다
+    sum -= n;
+    if(sum >0){
+        //3. 2의 결과를 works의 배열 원소 개수로 나눈다
+        int indexNum = sum /works.size(); //2
+        int remainder = sum % works.size(); //0
+    
+    
+        //4. 표준화된 결과를 더한다
+        for(int i=0; i< works.size()-1; i++){ //3
+         answer += (indexNum*indexNum); //4+4=8
+        }
+        printf("answer : %d\n", answer); //기댓값: 6
+    
+        //5. 마지막 인덱스에 들어갈 나머지를 더한다. 
+        answer += (indexNum+remainder)*(indexNum+remainder);
+    }
+    
+    
+    return answer;
+}

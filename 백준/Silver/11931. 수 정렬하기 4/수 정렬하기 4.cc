@@ -1,25 +1,21 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+// Authored by : heheHwang
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/7a7deeedae3b4177a1ed53482685bf15
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
-    int n;
-    cin >> n;
-    
-    vector<int> numbers;
-    //입력받기
-    while(n--){
-        int num;
-        cin >> num;
-        numbers.push_back(num);
-    }
-    
-    //내림차순으로 정렬하기
-    sort(numbers.begin(), numbers.end(), greater<int>());
-    
-    //출력
-    for(int i:numbers){
-        cout << i <<'\n';
-    }
+const int MXN = 2'000'000, HALF = MXN / 2;
+int main(void) {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
+  vector<bool> isnum(MXN + 2);
+  int N, t;
+  cin >> N;
+  while (N--) {
+    cin >> t;
+    isnum[t + HALF] = true;
+  }
+  for (int i = MXN; i >= 0; i--)
+    if (isnum[i]) cout << i - HALF << '\n';
 }

@@ -49,10 +49,39 @@ void mergeSort(int length){
     int m, left=0, right=length;
     
 }
+
+
     
 //5. 퀵 정렬
-void quickSort(int length){
-    
+
+int partition(vector<int> &list, int left, int right){
+    int pivot = list[left];
+    int low = left;
+    int high = right+1;
+
+    while(low <high){
+        //low가 범위 안에 있고 && 왼쪽 값이 pivot보다 작으면
+        while(low <right && list[low]>pivot)
+            low++; //low 오른쪽으로 한칸 이동
+        //high가 범위 안에 있고 && 오른쪽 값이 pivot보다 크면
+        while(high>left && list[high]<pivot)
+            high--; //high 왼쪽으로 한칸이동
+        //위의 두상황에 어긋나면 값 정렬 변경
+        if(low <high)
+            swap(list[low], list[high]);
+    }
+    swap(list[left], list[high]);
+    return high;
+}
+
+void quickSort(vector<int> &list, int left, int right){
+    void quickSort(vector<int> &list, int left, int right){
+    if(left < right){
+        int q = partition(list, left, right);
+        quickSort(list, left, q-1);
+        quickSort(list, q+1, right);
+    }
+}
 }
 
 int main()

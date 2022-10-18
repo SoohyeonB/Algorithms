@@ -1,31 +1,25 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
+const int SIZE=10;
 
-
-int main()
-{
-    int n;
-    cin >> n;
+int main (void){
+    int roomNum;
+    cin >> roomNum;
     
-    vector<int> nums(9);
-    
-    while(n>0){
-        if(n%10 ==9)
-            nums[6]++;
-        else
-            nums[n%10]++;
-        n/=10;
+    vector<int> nums(SIZE);
+   
+    while(roomNum){ 
+        nums[roomNum%10]++; 
+        roomNum /=10; 
     }
+    nums[6] = (nums[6]+nums[9]+1)/2;
+    nums[9] = 0;
     
-    nums[6] = (nums[6]+1)/2;
+    cout << *max_element(nums.begin(), nums.end());
     
-    int result = *max_element(nums.begin(), nums.end());
-    cout << result;
-
     
-
     return 0;
 }
+
+
+

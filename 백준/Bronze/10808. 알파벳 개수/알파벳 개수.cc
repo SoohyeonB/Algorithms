@@ -1,22 +1,24 @@
-#include <iostream>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
-const int SIZE = 26;
+const int SIZE=26;
 
-int main()
-{
-    string s;
-    cin >> s;
+int main (void){
+    string S;
+    cin >> S;
+    //26개
     
-    vector<int> alphabet(SIZE);
+    vector<int> V(SIZE);
     
-    for(auto c:s)
-        alphabet[c-'a']++;
+    for(auto t:S){
+        V[t-'a']++;
+    }
     
-    for(int i=0 ; i<SIZE; i++)
-        cout << alphabet[i] << '\n';
+    for(int i=0; i<26; i++){
+        cout << V[i]<<" ";
+    }
     
-
     return 0;
 }
+
+
+

@@ -1,6 +1,3 @@
-// Authored by : BaaaaaaaaaaarkingDog
-// Co-authored by : -
-// http://boj.kr/a9f89b45ac624c2a8d13f27a01dd78d1
 #include <bits/stdc++.h>
 using namespace std;
 

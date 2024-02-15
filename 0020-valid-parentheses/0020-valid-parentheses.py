@@ -1,19 +1,18 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
-        bracket_map = {
-            ')':'(',
-            '}':'{',
-            ']':'['
-        }
 
-        for brackets in s:
-            if brackets in bracket_map:
-                #not stack == !stack.empty() in c++
-                #if stack is empty or stack.top()!= bracket pair, then return false
-                if not stack or stack[-1] != bracket_map[brackets]:
-                    return False
-                stack.pop() #if it's not (stack is not empty, and stack.top()==bracket pair, pop the top element))
-            else:
-                stack.append(brackets)
-        return not stack
+        table = {
+            ')': '(',
+            '}': '{',
+            ']': '['
+        }
+        
+        for c in s:
+            # 괄호가 열리는거라면
+            if c not in table:
+                stack.append(c) # stack에 추가
+            # stack이 비어있거나 괄호 쌍이 안맞으면 False
+            elif not stack or table[c] != stack.pop():
+                return False
+        return len(stack) == 0
